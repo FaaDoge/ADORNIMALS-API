@@ -21,9 +21,9 @@ const Producto = {
   },
 
   add: async (productoData) => {
-    const { nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo } = productoData;
+    const { nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo,idproveedor } = productoData;
     try {
-      const [result, _] = await db.query('INSERT INTO producto (nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo) VALUES (?, ?, ?, ?, ?, ?, ?)', [nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo]);
+      const [result, _] = await db.query('INSERT INTO producto (nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo,idproveedor) VALUES (?, ?, ?, ?, ?, ?, ?,?)', [nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo,idproveedor]);
       return result.insertId;
     } catch (error) {
       throw error;
@@ -33,7 +33,7 @@ const Producto = {
   update: async (id, productoData) => {
     const { nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo } = productoData;
     try {
-      const [result, _] = await db.query('UPDATE producto SET nombre = ?, descripcion = ?, imagen = ?, calificacion = ?, precioproveedor = ?, comision = ?, idtipo = ? WHERE id = ?', [nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo, id]);
+      const [result, _] = await db.query('UPDATE producto SET nombre = ?, descripcion = ?, imagen = ?, calificacion = ?, precioproveedor = ?, comision = ?, idtipo = ?,idproveedor = ? WHERE id = ?', [nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo,idproveedor, id]);
       return result.affectedRows > 0;
     } catch (error) {
       throw error;
