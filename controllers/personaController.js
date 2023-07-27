@@ -25,7 +25,7 @@ const PersonaController = {
       res.status(500).json({ error: 'Error al obtener la persona' });
     }
   },
-
+/*
   add: async (req, res) => {
     // Validar los datos utilizando las funciones de validación
     const errors = validationResult(req);
@@ -41,6 +41,17 @@ const PersonaController = {
       res.status(500).json({ error: 'Error al agregar persona' });
     }
   },
+*/
+  add: async (req, res) => {
+    const personaData = req.body;
+    try {
+      const personaId = await Persona.add(personaData);
+      res.json({ id: personaId });
+    } catch (error) {
+      res.status(500).json({ error: 'puto el que lo lea' });
+    }
+  },
+
 
   update: async (req, res) => {
     // Validar los datos utilizando las funciones de validación

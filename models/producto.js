@@ -31,7 +31,7 @@ const Producto = {
   },
 
   update: async (id, productoData) => {
-    const { nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo } = productoData;
+    const { nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo ,idproveedor} = productoData;
     try {
       const [result, _] = await db.query('UPDATE producto SET nombre = ?, descripcion = ?, imagen = ?, calificacion = ?, precioproveedor = ?, comision = ?, idtipo = ?,idproveedor = ? WHERE id = ?', [nombre, descripcion, imagen, calificacion, precioproveedor, comision, idtipo,idproveedor, id]);
       return result.affectedRows > 0;
