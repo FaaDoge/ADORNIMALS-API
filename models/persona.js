@@ -24,7 +24,7 @@ const Persona = {
   add: async (personaData) => {
     const { ci, nombre, apellido, correo,idusuario } = personaData;
     try {
-      const [result, _] = await db.query('INSERT INTO persona (ci, nombre, apellido, correo, usuario_id) VALUES (?, ?, ?, ?)', [ci, nombre, apellido, correo,idusuario]);
+      const [result, _] = await db.query('INSERT INTO persona (ci, nombre, apellido, correo, usuario_id) VALUES (?, ?, ?, ?,?)', [ci, nombre, apellido, correo,idusuario]);
       return result.insertId;
     } catch (error) {
       throw error;
