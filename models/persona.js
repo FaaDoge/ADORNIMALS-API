@@ -22,9 +22,9 @@ const Persona = {
   },
 
   add: async (personaData) => {
-    const { ci, nombre, apellido, correo } = personaData;
+    const { ci, nombre, apellido, correo,idusuario } = personaData;
     try {
-      const [result, _] = await db.query('INSERT INTO persona (ci, nombre, apellido, correo) VALUES (?, ?, ?, ?)', [ci, nombre, apellido, correo]);
+      const [result, _] = await db.query('INSERT INTO persona (ci, nombre, apellido, correo, usuario_id) VALUES (?, ?, ?, ?)', [ci, nombre, apellido, correo,idusuario]);
       return result.insertId;
     } catch (error) {
       throw error;
@@ -32,9 +32,9 @@ const Persona = {
   },
 
   update: async (id, personaData) => {
-    const { ci, nombre, apellido, correo } = personaData;
+    const { ci, nombre, apellido, correo,idusuario } = personaData;
     try {
-      const [result, _] = await db.query('UPDATE persona SET ci = ?, nombre = ?, apellido = ?, correo = ? WHERE id = ?', [ci, nombre, apellido, correo, id]);
+      const [result, _] = await db.query('UPDATE persona SET ci = ?, nombre = ?, apellido = ?, correo = ?, usuario_id = ? WHERE id = ?', [ci, nombre, apellido, correo,idusuario, id]);
       return result.affectedRows > 0;
     } catch (error) {
       throw error;
