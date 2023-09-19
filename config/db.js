@@ -2,10 +2,10 @@ const mysql = require('mysql2/promise'); // Importa el módulo mysql2 con soport
 
 // Configurar las credenciales de conexión a la base de datos
 const pool = mysql.createPool({
-  host: 'adornimals.sicaabol.com',
-  user: 'u171106619_rootadornimals',
-  password: 'Sanchez7188374_',
-  database: 'u171106619_adornimals'
+  host: '',
+  user: '',
+  password: '',
+  database: ''
 });
 
 // Exporta el pool de conexión para que esté disponible en otros archivos
